@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "includePaths": ["chorus/**", "chorus-build/**"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": "config.json",
+      "matchStringsStrategy": "combination",
+      "matchStrings": [
+        "\"chart\": \"(charts/)?(?<depName>[^\\\"]+)\",",
+        "\"version\": \"(?<currentValue>[^\\\"]+)\","
+      ],
+      "autoReplaceStringTemplate": "\"version\": \"{{{newValue}}}\",",
+      "depNameTemplate": "harbor.build.chorus-tre.ch/charts/{{{depName}}}",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": ["chorus-build/**"],
+      "additionalBranchPrefix": "build/",
+      "commitMessageSuffix": "in build"
+    },
+    {
+      "matchFileNames": ["chorus/**"],
+      "additionalBranchPrefix": "chorus/",
+      "commitMessageSuffix": "in chorus"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+harbor:
+  expose:
+    tls:
+      certSource: secret
+      secret:
+        secretName: harbor.build.chorus-tre.ch-tls
+    ingress:
+      hosts:
+        core: harbor.build.chorus-tre.ch
+
+  externalURL: https://harbor.build.chorus-tre.ch
+
+  database:
+    external:
+      host: "chorus-build-harbor-db-postgresql"
+
+  redis:
+    external:
+      addr: "chorus-build-harbor-cache-valkey-primary:6379"
+
+certificate:
+  enabled: true
+
+  issuerRef:
+    name: private-ca-cluster-issuer
+    kind: ClusterIssuer

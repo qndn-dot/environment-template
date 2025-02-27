@@ -1,0 +1,25 @@
+matomo:
+  matomoWebsiteName: chorus-qa
+  matomoWebsiteHost: https://matomo.qa.chorus-tre.ch
+  resourcesPreset: "large"
+  ingress:
+    hostname: "makoto.qa.chorus-tre.ch"
+  externalDatabase:
+    host: "chorus-qa-matomo-db"
+
+  # temp fix for https://github.com/bitnami/charts/issues/29884
+  pdb:
+    create: false
+  podLabels:
+    app.kubernetes.io/component: matomo
+  extraDeploy:
+    - apiVersion: policy/v1
+      kind: PodDisruptionBudget
+      metadata:
+        name: chorus-qa-matomo
+        namespace: matomo
+      spec:
+        maxUnavailable: 1
+        selector:
+          matchLabels:
+            app.kubernetes.io/component: matomo
