@@ -44,11 +44,6 @@ harbor:
     credentials:
       # If using existingSecret, the key must be REGISTRY_PASSWD and REGISTRY_HTPASSWD
       existingSecret: harbor-registry-credentials
-      # htpasswd generated with
-      # username: harbor
-      # password: password
-      # algorithm: Bcrypt v2.4
-      htpasswdString: harbor:$2y$10$hoIQPrJ/ClKw0lhRnPV6i.ZLllu4LFbg9.X5FUZ/MCR0hJuvDO8oa
 
 certificate:
   enabled: true
