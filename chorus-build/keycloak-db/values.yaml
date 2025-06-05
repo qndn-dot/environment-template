@@ -5,6 +5,10 @@ postgresql:
         username: keycloak
         database: keycloak
         existingSecret: keycloak-db-secret
+        postgresPassword: postgres
+        secretKeys:
+          adminPasswordKey: postgres-password
+          userPasswordKey: password
 
   tls:
     enabled: true
@@ -21,6 +25,10 @@ postgresql:
     registry: docker.io
     repository: bitnami/postgresql
     tag: 16.4.0
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
 
 certificate:
   enabled: true

@@ -1,4 +1,5 @@
 argo-cd:
+  namespaceOverride: argocd
   crds:
     install: true
     keep: false
@@ -10,9 +11,9 @@ argo-cd:
       # See: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/keycloak/
       oidc.config: |
         name: Keycloak
-        issuer: https://auth.build.chorus-tre.ch/realms/build
-        clientId: argocd
-        clientSecret: $oidc.keycloak.clientSecret
+        issuer: $argocd-oidc:keycloak.issuer
+        clientId: $argocd-oidc:keycloak.clientId
+        clientSecret: $argocd-oidc:keycloak.clientSecret
         requestedScopes: ["openid", "profile", "email", "groups"]
     rbac:
       policy.csv: |-
