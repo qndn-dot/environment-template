@@ -1,5 +1,4 @@
 argo-workflows:
-  namespaceOverride: "argo-workflows"
   workflow:
     serviceAccount:
       create: true
