@@ -1,4 +1,5 @@
 argo-workflows:
+  namespaceOverride: "argo-workflows"
   workflow:
     serviceAccount:
       create: true
@@ -28,14 +29,14 @@ argo-workflows:
 
     sso:
       enabled: true
-      issuer: https://auth.build.chorus-tre.ch/realms/build
+      issuer: https://auth.build-t.chorus-tre.ch/realms/build
       clientId:
         name: argo-workflows-oidc
         key: client-id
       clientSecret:
         name: argo-workflows-oidc
         key: client-secret
-      redirectUrl: https://argo-workflows.build.chorus-tre.ch/oauth2/callback
+      redirectUrl: https://argo-workflows.build-t.chorus-tre.ch/oauth2/callback
       rbac:
         enabled: true
       scopes: [openid, email, profile, groups]
@@ -46,11 +47,11 @@ argo-workflows:
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
       hosts:
-        - argo-workflows.build.chorus-tre.ch
+        - argo-workflows.build-t.chorus-tre.ch
       paths:
         - /
       pathType: Prefix
       tls:
         - hosts:
-            - argo-workflows.build.chorus-tre.ch
+            - argo-workflows.build-t.chorus-tre.ch
           secretName: argo-workflows-tls
