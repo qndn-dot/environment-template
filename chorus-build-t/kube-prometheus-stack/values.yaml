@@ -27,11 +27,11 @@ kube-prometheus-stack:
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - alertmanager.build.chorus-tre.ch
+        - alertmanager.build-t.chorus-tre.ch
       tls:
         - secretName: alertmanager-general-tls
           hosts:
-            - alertmanager.build.chorus-tre.ch
+            - alertmanager.build-t.chorus-tre.ch
 
     alertmanagerSpec:
       storage:
@@ -54,12 +54,12 @@ kube-prometheus-stack:
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
 
       hosts:
-        - grafana.build.chorus-tre.ch
+        - grafana.build-t.chorus-tre.ch
 
       tls:
         - secretName: grafana-general-tls
           hosts:
-            - grafana.build.chorus-tre.ch
+            - grafana.build-t.chorus-tre.ch
 
     envValueFrom:
       GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET:
@@ -77,14 +77,14 @@ kube-prometheus-stack:
         email_attribute_path: email
         login_attribute_path: username
         name_attribute_path: full_name
-        auth_url: https://auth.build.chorus-tre.ch/realms/build/protocol/openid-connect/auth?kc_idp_hint=google
-        token_url: https://auth.build.chorus-tre.ch/realms/build/protocol/openid-connect/token
-        api_url: https://auth.build.chorus-tre.ch/realms/build/protocol/openid-connect/userinfo
+        auth_url: https://auth.build-t.chorus-tre.ch/realms/build/protocol/openid-connect/auth?kc_idp_hint=google
+        token_url: https://auth.build-t.chorus-tre.ch/realms/build/protocol/openid-connect/token
+        api_url: https://auth.build-t.chorus-tre.ch/realms/build/protocol/openid-connect/userinfo
         role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
         allow_assign_grafana_admin: true
       server:
-        domain: grafana.build.chorus-tre.ch
-        root_url: https://grafana.build.chorus-tre.ch/
+        domain: grafana.build-t.chorus-tre.ch
+        root_url: https://grafana.build-t.chorus-tre.ch/
 
     serviceMonitor:
       enabled: true
@@ -98,11 +98,11 @@ kube-prometheus-stack:
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - prometheus.build.chorus-tre.ch
+        - prometheus.build-t.chorus-tre.ch
       tls:
         - secretName: prometheus-general-tls
           hosts:
-            - prometheus.build.chorus-tre.ch
+            - prometheus.build-t.chorus-tre.ch
 
     prometheusSpec:
       storageSpec:
