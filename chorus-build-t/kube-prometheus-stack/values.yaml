@@ -84,7 +84,7 @@ kube-prometheus-stack:
         allow_assign_grafana_admin: true
       server:
         domain: grafana.build-t.chorus-tre.ch
-        root_url: https://grafana.build-t.chorus-tre.ch/
+        root_url: https://grafana.build-t.chorus-tre.ch
 
     serviceMonitor:
       enabled: true
