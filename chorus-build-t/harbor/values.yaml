@@ -1,5 +1,4 @@
 harbor:
-  namespace: harbor # used only by terraform
   # If using existingSecretSecretKey, the key must be secretKey
   # The secret key used for encryption. Must be a string of 16 chars.
   existingSecretSecretKey: harbor-key

@@ -1,5 +1,4 @@
 argo-cd:
-  namespaceOverride: argocd
   crds:
     install: true
     keep: false
