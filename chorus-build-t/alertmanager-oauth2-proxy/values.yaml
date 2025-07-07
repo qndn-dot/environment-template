@@ -10,7 +10,7 @@ oauth2-proxy:
     configFile: |-
       email_domains = [ "chuv.ch" ]
       redirect_url = "https://alertmanager.build-t.chorus-tre.ch/oauth2/callback"
-      oidc_issuer_url = "https://auth.build-t.chorus-tre.ch/realms/build"
+      oidc_issuer_url = "https://auth.build-t.chorus-tre.ch/realms/infra"
       scope = "openid email"
       provider = "keycloak-oidc"
       provider_display_name = "Keycloak"
