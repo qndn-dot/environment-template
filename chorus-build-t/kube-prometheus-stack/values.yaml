@@ -116,7 +116,7 @@ kube-prometheus-stack:
 
 alertmanagerConfiguration:
   webex:
-    enabled: true
+    enabled: false
     credentials:
       name: config-webex-secret
       key: access-token
