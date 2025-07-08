@@ -4,7 +4,7 @@ oauth2-proxy:
     # - cookie-secret (openssl rand -base64 32 | head -c 32 | base64)
     # - client-secret (from Keycloak)
     # - client-id
-    existingSecret: oauth2-proxy-oidc-secret
+    existingSecret: prometheus-oauth2-proxy-oidc-secret
 
     # See: https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/keycloak_oidc/
     configFile: |-
@@ -18,7 +18,7 @@ oauth2-proxy:
   sessionStorage:
     type: redis
     redis:
-      existingSecret: oauth2-proxy-secret
+      existingSecret: prometheus-oauth2-proxy-secret
       passwordKey: REDIS_PASSWORD
       standalone:
         connectionUrl: redis://chorus-build-t-oauth2-proxy-valkey-primary.keycloak.svc.cluster.local:6379/1
