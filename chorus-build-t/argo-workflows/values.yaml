@@ -3,7 +3,7 @@ argo-workflows:
     serviceAccount:
       create: true
       annotations:
-        "workflows.argoproj.io/rbac-rule": "'ArgoWorkflowsAdmins' in 'groups'"
+        "workflows.argoproj.io/rbac-rule": "'ArgoWorkflowsAdmins' in groups"
         "workflows.argoproj.io/rbac-rule-precedence": “1”
     #rbac:
     #  serviceAccounts:
