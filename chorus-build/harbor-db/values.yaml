@@ -4,7 +4,6 @@ postgresql:
       auth:
         username: harbor
         existingSecret: harbor-db-secret
-        postgresPassword: postgres
         secretKeys:
           adminPasswordKey: postgres-password
           userPasswordKey: password
