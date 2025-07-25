@@ -5,7 +5,6 @@ postgresql:
         username: keycloak
         database: keycloak
         existingSecret: keycloak-db-secret
-        postgresPassword: postgres
         secretKeys:
           adminPasswordKey: postgres-password
           userPasswordKey: password
