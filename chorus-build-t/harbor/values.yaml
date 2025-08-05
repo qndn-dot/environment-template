@@ -34,6 +34,8 @@ harbor:
       host: "chorus-build-t-harbor-db-postgresql"
 
   redis:
+    master:
+      resourcesPreset: "small"
     external:
       addr: "chorus-build-t-harbor-cache-valkey-primary:6379"
 

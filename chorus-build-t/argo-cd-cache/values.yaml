@@ -5,9 +5,8 @@ valkey:
     existingSecret: argo-cd-cache-secret
     # That's the key wanted by argo-cd.
     existingSecretPasswordKey: redis-password
+  primary:
+    resourcesPreset: "small"
+
   metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
-    podMonitor:
-      enabled: true
+    resourcesPreset: "micro"

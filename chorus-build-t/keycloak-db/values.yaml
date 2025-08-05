@@ -14,8 +14,12 @@ postgresql:
     certificatesSecret: keycloak-db-tls-secret
 
   primary:
+    resourcesPreset: "large"
     persistence:
       size: 1Gi
+
+  metrics:
+    resourcesPreset: "micro"
 
   # Warning: Keycloak is still on 16
   # https://www.keycloak.org/server/db
@@ -24,10 +28,6 @@ postgresql:
     registry: docker.io
     repository: bitnami/postgresql
     tag: 16.4.0
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
 
 certificate:
   enabled: true

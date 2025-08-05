@@ -1,7 +1,4 @@
 argo-cd:
-  crds:
-    install: true
-    keep: false
   global:
     domain: argo-cd.build-t.chorus-tre.ch
   configs:
