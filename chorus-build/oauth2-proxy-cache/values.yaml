@@ -2,9 +2,10 @@ valkey:
   auth:
     enabled: true
     sentinel: false
-    existingSecret: argo-cd-cache-secret
-    # That's the key wanted by argo-cd.
-    existingSecretPasswordKey: redis-password
+
+    existingSecret: oauth2-proxy-cache-secret
+    existingSecretPasswordKey: REDIS_PASSWORD
+
   primary:
     resourcesPreset: "small"
 

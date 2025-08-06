@@ -1,8 +1,4 @@
 argo-cd:
-  namespaceOverride: argocd
-  crds:
-    install: true
-    keep: false
   global:
     domain: argo-cd.build.chorus-tre.ch
   configs:

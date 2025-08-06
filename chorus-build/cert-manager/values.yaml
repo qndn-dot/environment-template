@@ -1,8 +1,2 @@
-cert-manager:
-  crds:
-    enabled: false
-  namespace: cert-manager
 clusterissuer:
-  name: letsencrypt-prod
-  server: ""
   email: no-reply@chorus-tre.ch
