@@ -1,5 +1,5 @@
 {
   "chart": "argo-ci",
-  "version": "0.0.82",
+  "version": "0.0.91",
   "namespace": "argo"
 }
