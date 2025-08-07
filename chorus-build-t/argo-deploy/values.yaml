@@ -5,3 +5,10 @@ environments:
     envRepoRevision: feat/helm-chart-install
     registryURL: harbor.build-t.chorus-tre.ch
     cluster: in-cluster
+
+  - name: chorus-int
+    description: Ephemeral project for test purposes
+    envRepoURL: https://github.com/CHORUS-TRE/environment-template.git
+    envRepoRevision: feat/helm-chart-install
+    registryURL: harbor.build-t.chorus-tre.ch
+    cluster: chorus-int

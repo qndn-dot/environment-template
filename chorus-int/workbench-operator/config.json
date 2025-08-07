@@ -1,0 +1,5 @@
+{
+    "chart": "workbench-operator",
+    "version": "0.3.17",
+    "namespace": "workbench-operator-system"
+}
