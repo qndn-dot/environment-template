@@ -1,6 +1,6 @@
 {
   "chart": "mariadb",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "namespace": "matomo",
   "stepName": "database"
 }
