@@ -1,0 +1,8 @@
+trust-manager:
+  secretTargets:
+    enabled: true
+    authorizedSecrets:
+      - private-ca-secret
+
+  app:
+    logFormat: json

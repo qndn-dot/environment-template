@@ -1,0 +1,33 @@
+postgresql:
+  global:
+    postgresql:
+      auth:
+        username: chorus-cscsqa-user
+        existingSecret: "backend-postgresql"
+        secretKeys:
+          userPasswordKey: "user-password"
+
+  tls:
+    enabled: true
+    certificatesSecret: backend-postgresql-tls-secret
+
+  primary:
+    persistance:
+      size: 8Gi
+
+    resourcesPreset: small
+
+  image:
+    # https://hub.docker.com/r/bitnami/postgresql
+    registry: docker.io
+    repository: bitnami/postgresql
+    tag: 16.4.0
+
+certificate:
+  enabled: true
+
+  secretName: backend-postgresql-tls-secret # same as above
+
+  issuerRef:
+    name: private-ca-cluster-issuer
+    kind: ClusterIssuer

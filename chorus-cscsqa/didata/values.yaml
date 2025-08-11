@@ -1,0 +1,17 @@
+image:
+  repository: harbor.cscsqa.chorus-tre.ch/services/didata
+
+env:
+  url: "https://didata.cscsqa.chorus-tre.ch"
+
+ingress:
+  hosts:
+    - host: didata.cscsqa.chorus-tre.ch
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: didata-tls
+      hosts:
+        - didata.cscsqa.chorus-tre.ch
+

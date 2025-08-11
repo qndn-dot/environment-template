@@ -1,0 +1,5 @@
+{
+  "chart": "kube-prometheus-stack",
+  "version": "0.0.22",
+  "namespace": "prometheus"
+}

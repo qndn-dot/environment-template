@@ -1,0 +1,27 @@
+cluster-secret:
+  image:
+    # The default image will not skip the good labels... hence
+    # all secrets will get erased by ArgoCD without it.
+    # https://github.com/zakkg3/ClusterSecret/issues/150
+    repository: harbor.cscsqa.chorus-tre.ch/library/cluster-secret
+    tag: 0.0.13a
+
+managedSecrets:
+  - metadata:
+      name: regcred
+      namespace: clustersecret
+    matchNamespace:
+      - ".*"
+    avoidNamespaces:
+      - cloud-init-settings
+      - clustersecret
+      - default
+      - ingress-nginx
+      - kube-.*
+      - kubernetes-dashboard
+    type: kubernetes.io/dockerconfigjson
+    data:
+      valueFrom:
+        secretKeyRef:
+          name: regcred
+          namespace: default

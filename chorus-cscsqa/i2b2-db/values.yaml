@@ -1,0 +1,3 @@
+fullnameOverride: chorus-cscsqa-i2b2-db
+job:
+  wildflyURL: "http://chorus-cscsqa-i2b2-wildfly:8080"
