@@ -4,3 +4,9 @@ environments:
     envRepoURL: https://github.com/CHORUS-TRE/environment-template.git
     registryURL: harbor.build.chorus-tre.ch
     cluster: in-cluster
+
+  - name: chorus
+    description: CHORUS
+    envRepoURL: https://github.com/CHORUS-TRE/environment-template.git
+    registryURL: harbor.build.chorus-tre.ch
+    cluster: chorus
