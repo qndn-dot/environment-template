@@ -1,0 +1,13 @@
+valkey:
+  auth:
+    enabled: true
+    sentinel: false
+
+    existingSecret: oauth2-proxy-cache-secret
+    existingSecretPasswordKey: REDIS_PASSWORD
+
+  primary:
+    resourcesPreset: "small"
+
+  metrics:
+    resourcesPreset: "micro"
