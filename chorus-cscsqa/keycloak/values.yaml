@@ -1,6 +1,4 @@
 keycloak:
-  nameOverride: keycloak
-  namespaceOverride: ""
 
   auth:
     existingSecret: keycloak-secret
@@ -44,7 +42,6 @@ keycloak:
         #- path: '{{ include "keycloak.httpPath" . }}metrics'
         - path: '{{ include "keycloak.httpPath" . }}realms/{{ .Values.adminRealm }}/metrics'
           # Our custom realms
-        - path: '{{ include "keycloak.httpPath" . }}realms/cscsqa/metrics'
         - path: '{{ include "keycloak.httpPath" . }}realms/chorus/metrics'
 
   postgresql:
