@@ -42,7 +42,7 @@ main: |
         migration_table_name: tt_migrations
         host: chorus-cscsqa-backend-db-postgresql
         port: 5432
-        username: chorus-cscsqa-user
+        username: backend
         password: '{{ .postgres_password }}'
         database: chorus
         max_connections: 10

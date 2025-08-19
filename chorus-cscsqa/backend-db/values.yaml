@@ -27,7 +27,7 @@ postgresql:
 certificate:
   enabled: true
 
-  secretName: backend-postgresql-tls-secret # same as above
+  secretName: backend-db-tls-secret # same as above
 
   issuerRef:
     name: private-ca-cluster-issuer
