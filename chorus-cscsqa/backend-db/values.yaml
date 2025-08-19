@@ -2,14 +2,15 @@ postgresql:
   global:
     postgresql:
       auth:
-        username: chorus-cscsqa-user
-        existingSecret: "backend-postgresql"
+        username: backend
+        existingSecret: backend-db
         secretKeys:
-          userPasswordKey: "user-password"
+          adminPasswordKey: postgres-password
+          userPasswordKey: password
 
   tls:
     enabled: true
-    certificatesSecret: backend-postgresql-tls-secret
+    certificatesSecret: backend-db-tls-secret
 
   primary:
     persistance:
