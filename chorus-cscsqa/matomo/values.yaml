@@ -2,6 +2,7 @@ matomo:
   matomoWebsiteName: chorus-cscsqa
   matomoWebsiteHost: https://matomo.cscsqa.chorus-tre.ch
   resourcesPreset: "large"
+  existingSecret: "matomo-secret"
   ingress:
     hostname: "makoto.cscsqa.chorus-tre.ch"
   externalDatabase:

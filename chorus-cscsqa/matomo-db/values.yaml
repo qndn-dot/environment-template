@@ -1,8 +1,7 @@
 mariadb:
   fullnameOverride: chorus-cscsqa-matomo-db
   auth:
-    database: bitnami_matomo
-    username: bn_matomo
+    existingSecret: "matomo-db-secret"
   tls:
     enabled: true
     existingSecret: matomo-db-tls-secret
