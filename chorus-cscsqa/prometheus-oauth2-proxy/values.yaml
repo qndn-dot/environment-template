@@ -21,7 +21,7 @@ oauth2-proxy:
       existingSecret: prometheus-oauth2-proxy-secret
       passwordKey: REDIS_PASSWORD
       standalone:
-        connectionUrl: redis://chorus-cscsqa-oauth2-proxy-valkey-primary.keycloak.svc.cluster.local:6379/1
+        connectionUrl: redis://chorus-cscsqa-oauth2-proxy-cache-valkey-primary.keycloak.svc.cluster.local:6379/1
 
   ingress:
     enabled: true
