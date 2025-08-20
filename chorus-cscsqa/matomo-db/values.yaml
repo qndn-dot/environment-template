@@ -1,5 +1,7 @@
 mariadb:
   auth:
+    database: bitnami_matomo
+    username: bn_matomo
     existingSecret: "matomo-db-secret"
   tls:
     enabled: true
