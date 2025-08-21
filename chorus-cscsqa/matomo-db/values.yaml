@@ -9,4 +9,4 @@ mariadb:
       certManager:
         existingIssuer: private-ca-cluster-issuer
         existingIssuerKind: ClusterIssuer
-  initdbScriptsConfigMap: "matomo-db-initdb"
+  initdbScriptsConfigMap: ""
