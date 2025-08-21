@@ -27,11 +27,11 @@ kube-prometheus-stack:
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - alertmanager.qa.chorus-tre.ch
+        - alertmanager.chorus-tre.ch
       tls:
         - secretName: alertmanager-general-tls
           hosts:
-            - alertmanager.qa.chorus-tre.ch
+            - alertmanager.chorus-tre.ch
 
     alertmanagerSpec:
       storage:
@@ -57,12 +57,12 @@ kube-prometheus-stack:
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
 
       hosts:
-        - grafana.qa.chorus-tre.ch
+        - grafana.chorus-tre.ch
 
       tls:
         - secretName: grafana-general-tls
           hosts:
-            - grafana.qa.chorus-tre.ch
+            - grafana.chorus-tre.ch
 
     envValueFrom:
       GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET:
@@ -80,15 +80,15 @@ kube-prometheus-stack:
         email_attribute_path: email
         login_attribute_path: username
         name_attribute_path: full_name
-        auth_url: https://auth.qa.chorus-tre.ch/realms/qa/protocol/openid-connect/auth?kc_idp_hint=google
-        token_url: https://auth.qa.chorus-tre.ch/realms/qa/protocol/openid-connect/token
-        api_url: https://auth.qa.chorus-tre.ch/realms/qa/protocol/openid-connect/userinfo
+        auth_url: https://auth.chorus-tre.ch/realms/qa/protocol/openid-connect/auth?kc_idp_hint=google
+        token_url: https://auth.chorus-tre.ch/realms/qa/protocol/openid-connect/token
+        api_url: https://auth.chorus-tre.ch/realms/qa/protocol/openid-connect/userinfo
         role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
         allow_assign_grafana_admin: true
       server:
         # https://grafana.com/docs/grafana/latest/administration/configuration/#server
-        domain: grafana.qa.chorus-tre.ch
-        root_url: https://grafana.qa.chorus-tre.ch/
+        domain: grafana.chorus-tre.ch
+        root_url: https://grafana.chorus-tre.ch
 
     serviceMonitor:
       enabled: true
@@ -102,11 +102,11 @@ kube-prometheus-stack:
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - prometheus.qa.chorus-tre.ch
+        - prometheus.chorus-tre.ch
       tls:
         - secretName: prometheus-general-tls
           hosts:
-            - prometheus.qa.chorus-tre.ch
+            - prometheus.chorus-tre.ch
 
     prometheusSpec:
       storageSpec:
@@ -120,8 +120,8 @@ kube-prometheus-stack:
 
 alertmanagerConfiguration:
   webex:
-    enabled: true
+    enabled: false
     credentials:
       name: config-webex-secret
       key: access-token
-    roomID: ac025d10-cf64-11ef-9a40-75905b163ca7 # Alerts (chorus-qa)
+    roomID: some-room-id # Alerts (chorus)
