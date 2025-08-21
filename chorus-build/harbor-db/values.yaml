@@ -4,6 +4,9 @@ postgresql:
       auth:
         username: harbor
         existingSecret: harbor-db-secret
+        secretKeys:
+          adminPasswordKey: postgres-password
+          userPasswordKey: password
 
   tls:
     enabled: true
@@ -18,11 +21,12 @@ postgresql:
           \c registry;
 
           CREATE TABLE schema_migrations(version bigint not null primary key, dirty boolean not null);
-
+    resourcesPreset: "small"
     persistence:
       size: 10Gi
 
-    resourcesPreset: "small"
+  metrics:
+    resourcesPreset: "micro"
 
   # Warning: go-harbordb is still using 15 (and 14).
   # See: https://github.com/goharbor/harbor/blob/main/make/photon/db/Dockerfile.base
@@ -30,7 +34,7 @@ postgresql:
     # https://hub.docker.com/r/bitnami/postgresql
     registry: docker.io
     repository: bitnami/postgresql
-    tag: 15.8.0
+    tag: 15.10.0
 
 certificate:
   enabled: true

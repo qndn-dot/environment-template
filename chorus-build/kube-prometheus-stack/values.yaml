@@ -77,14 +77,14 @@ kube-prometheus-stack:
         email_attribute_path: email
         login_attribute_path: username
         name_attribute_path: full_name
-        auth_url: https://auth.build.chorus-tre.ch/realms/build/protocol/openid-connect/auth?kc_idp_hint=google
-        token_url: https://auth.build.chorus-tre.ch/realms/build/protocol/openid-connect/token
-        api_url: https://auth.build.chorus-tre.ch/realms/build/protocol/openid-connect/userinfo
+        auth_url: https://auth.build.chorus-tre.ch/realms/infra/protocol/openid-connect/auth?kc_idp_hint=google
+        token_url: https://auth.build.chorus-tre.ch/realms/infra/protocol/openid-connect/token
+        api_url: https://auth.build.chorus-tre.ch/realms/infra/protocol/openid-connect/userinfo
         role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
         allow_assign_grafana_admin: true
       server:
         domain: grafana.build.chorus-tre.ch
-        root_url: https://grafana.build.chorus-tre.ch/
+        root_url: https://grafana.build.chorus-tre.ch
 
     serviceMonitor:
       enabled: true

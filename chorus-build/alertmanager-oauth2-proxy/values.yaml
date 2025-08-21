@@ -4,13 +4,13 @@ oauth2-proxy:
     # - cookie-secret (openssl rand -base64 32 | head -c 32 | base64)
     # - client-secret (from Keycloak)
     # - client-id
-    existingSecret: oauth2-proxy-secret
+    existingSecret: alertmanager-oauth2-proxy-oidc-secret
 
     # See: https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/keycloak_oidc/
     configFile: |-
       email_domains = [ "chuv.ch" ]
       redirect_url = "https://alertmanager.build.chorus-tre.ch/oauth2/callback"
-      oidc_issuer_url = "https://auth.build.chorus-tre.ch/realms/build"
+      oidc_issuer_url = "https://auth.build.chorus-tre.ch/realms/infra"
       scope = "openid email"
       provider = "keycloak-oidc"
       provider_display_name = "Keycloak"
@@ -18,10 +18,10 @@ oauth2-proxy:
   sessionStorage:
     type: redis
     redis:
-      existingSecret: oauth2-proxy-secret
+      existingSecret: alertmanager-oauth2-proxy-secret
       passwordKey: REDIS_PASSWORD
       standalone:
-        connectionUrl: redis://chorus-build-oauth2-proxy-valkey-primary.keycloak.svc.cluster.local:6379/1
+        connectionUrl: redis://chorus-build-oauth2-proxy-cache-valkey-primary.keycloak.svc.cluster.local:6379/1
 
   ingress:
     enabled: true

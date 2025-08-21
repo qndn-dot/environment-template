@@ -5,3 +5,8 @@ valkey:
     existingSecret: argo-cd-cache-secret
     # That's the key wanted by argo-cd.
     existingSecretPasswordKey: redis-password
+  primary:
+    resourcesPreset: "small"
+
+  metrics:
+    resourcesPreset: "micro"

@@ -1,4 +1,4 @@
-# Kube Prometheus Stack
+# kube-prometheus-stack
 
 The Prometheus stack currently deploys:
 

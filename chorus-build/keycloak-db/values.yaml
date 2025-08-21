@@ -5,14 +5,21 @@ postgresql:
         username: keycloak
         database: keycloak
         existingSecret: keycloak-db-secret
+        secretKeys:
+          adminPasswordKey: postgres-password
+          userPasswordKey: password
 
   tls:
     enabled: true
     certificatesSecret: keycloak-db-tls-secret
 
   primary:
+    resourcesPreset: "large"
     persistence:
       size: 1Gi
+
+  metrics:
+    resourcesPreset: "micro"
 
   # Warning: Keycloak is still on 16
   # https://www.keycloak.org/server/db
