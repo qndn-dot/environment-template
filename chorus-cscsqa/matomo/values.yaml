@@ -6,7 +6,7 @@ matomo:
   ingress:
     hostname: "makoto.cscsqa.chorus-tre.ch"
   externalDatabase:
-    host: "chorus-cscsqa-matomo-db"
+    host: "chorus-cscsqa-matomo-db-mariadb"
     existingSecret: "matomo-db-secret"
 
   # temp fix for https://github.com/bitnami/charts/issues/29884
