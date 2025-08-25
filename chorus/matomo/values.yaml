@@ -1,11 +1,11 @@
 matomo:
-  matomoWebsiteName: chorus-qa
-  matomoWebsiteHost: https://matomo.qa.chorus-tre.ch
+  matomoWebsiteName: chorus
+  matomoWebsiteHost: https://makoto.chorus-tre.ch
   resourcesPreset: "large"
   ingress:
-    hostname: "makoto.qa.chorus-tre.ch"
+    hostname: "makoto.chorus-tre.ch"
   externalDatabase:
-    host: "chorus-qa-matomo-db"
+    host: "chorus-matomo-db"
 
   # temp fix for https://github.com/bitnami/charts/issues/29884
   pdb:
@@ -16,7 +16,7 @@ matomo:
     - apiVersion: policy/v1
       kind: PodDisruptionBudget
       metadata:
-        name: chorus-qa-matomo
+        name: chorus-matomo
         namespace: matomo
       spec:
         maxUnavailable: 1

@@ -2,7 +2,7 @@ postgresql:
   global:
     postgresql:
       auth:
-        username: chorus-qa-user
+        username: chorus-user
         existingSecret: "backend-postgresql"
         secretKeys:
           userPasswordKey: "user-password"
