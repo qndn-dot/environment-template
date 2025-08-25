@@ -79,7 +79,7 @@ main: |
             authorize_url: "https://auth.chorus-tre.ch/realms/chorus/protocol/openid-connect/auth"
             token_url: "https://auth.chorus-tre.ch/realms/chorus/protocol/openid-connect/token"
             user_info_url: "https://auth.chorus-tre.ch/realms/chorus/protocol/openid-connect/userinfo"
-            logout_url: "https://auth.chorus-tre.ch/realms/chorus/protocol/openid-connect/logout?client_id=chorus&post_logout_redirect_uri=https://chorus.chorus-tre.ch"
+            logout_url: "https://auth.chorus-tre.ch/realms/chorus/protocol/openid-connect/logout?client_id=chorus&post_logout_redirect_uri=https://backend.chorus-tre.ch"
             user_name_claim: "preferred_username"
             # final_url_format: "https://chorus.chorus-tre.ch/login?token=%s"
             client_id: chorus
