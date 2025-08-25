@@ -1,4 +1,4 @@
-# OAuth2 Proxy Cache
+# Oauth2-proxy Valkey
 
 ## Why
 

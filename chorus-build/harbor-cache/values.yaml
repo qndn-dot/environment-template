@@ -2,3 +2,8 @@ valkey:
   auth:
     enabled: false
     sentinel: false
+  primary:
+    resourcesPreset: "small"
+
+  metrics:
+    resourcesPreset: "small"

@@ -2,6 +2,9 @@ argo-workflows:
   workflow:
     serviceAccount:
       create: true
+      annotations:
+        "workflows.argoproj.io/rbac-rule": "'ArgoWorkflowsAdmins' in groups"
+        "workflows.argoproj.io/rbac-rule-precedence": “1”
     #rbac:
     #  serviceAccounts:
     #    - name: argo-ci
@@ -28,7 +31,7 @@ argo-workflows:
 
     sso:
       enabled: true
-      issuer: https://auth.build.chorus-tre.ch/realms/build
+      issuer: https://auth.build.chorus-tre.ch/realms/infra
       clientId:
         name: argo-workflows-oidc
         key: client-id
