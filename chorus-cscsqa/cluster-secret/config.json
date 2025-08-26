@@ -1,6 +1,0 @@
-{
-  "chart": "cluster-secret",
-  "version": "0.0.7",
-  "namespace": "clustersecret",
-  "stepName": "infrastructure"
-}
