@@ -1,7 +1,8 @@
 controllerManager:
   manager:
     image:
-      repository: harbor.cscsqa.chorus-tre.ch/chorus/workbench-operator
+      #repository: harbor.cscsqa.chorus-tre.ch/chorus/workbench-operator
+      repository: harbor.build-t.chorus-tre.ch/chorus/workbench-operator
     args:
       - --leader-elect
       - --registry=harbor.cscsqa.chorus-tre.ch
