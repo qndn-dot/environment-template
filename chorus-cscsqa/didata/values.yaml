@@ -1,6 +1,3 @@
-image:
-  repository: harbor.cscsqa.chorus-tre.ch/services/didata
-
 env:
   url: "https://didata.cscsqa.chorus-tre.ch"
 
