@@ -7,7 +7,8 @@ service:
 
 deployment:
   postgresEnabled: false
-  serviceAccountName: "backend-service-account"
+  #serviceAccountName: "backend-service-account"
+  serviceAccountName: "backend-service-account-chorus-master"
 
 #image: registry.dip-dev.thehip.app/chorus-cicd-chorus:v0.0.11 # TODO change to harbor
 image: harbor.cscsqa.chorus-tre.ch/chorus/chorus-cicd-chorus:v0.0.11
