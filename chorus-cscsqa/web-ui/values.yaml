@@ -1,6 +1,5 @@
 image:
-  #repository: harbor.cscsqa.chorus-tre.ch/chorus/web-ui
-  repository: harbor.build-t.chorus-tre.ch/chorus/web-ui
+  repository: harbor.cscsqa.chorus-tre.ch/chorus/web-ui
 
 
 env:
