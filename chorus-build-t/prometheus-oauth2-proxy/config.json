@@ -1,5 +1,0 @@
-{
-    "chart": "oauth2-proxy",
-    "version": "0.0.12",
-    "namespace": "prometheus"
-}

@@ -1,7 +1,0 @@
-{
-  "chart": "prometheus-operator-crds",
-  "version": "0.0.7",
-  "namespace": "default",
-  "serverSideApply": true,
-  "stepName": "infrastructure"
-}

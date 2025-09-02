@@ -1,5 +1,0 @@
-{
-  "chart": "charts/cert-manager",
-  "version": "0.0.14",
-  "namespace": "cert-manager"
-}

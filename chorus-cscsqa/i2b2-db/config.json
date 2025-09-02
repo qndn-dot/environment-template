@@ -1,6 +1,0 @@
-{
-  "chart": "i2b2-postgres",
-  "version": "0.0.5",
-  "stepName": "database",
-  "namespace": "i2b2"
-}

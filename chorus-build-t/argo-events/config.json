@@ -1,5 +1,0 @@
-{
-  "chart": "argo-events",
-  "version": "0.0.8",
-  "namespace": "argo-events"
-}

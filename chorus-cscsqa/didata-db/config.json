@@ -1,6 +1,0 @@
-{
-  "chart": "mariadb",
-  "version": "0.0.13",
-  "namespace": "didata",
-  "stepName": "database"
-}

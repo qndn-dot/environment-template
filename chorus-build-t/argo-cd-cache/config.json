@@ -1,6 +1,0 @@
-{
-  "chart": "valkey",
-  "version": "0.0.10",
-  "namespace": "argocd",
-  "stepName": "database"
-}

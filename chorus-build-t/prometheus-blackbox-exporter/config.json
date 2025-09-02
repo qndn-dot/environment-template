@@ -1,5 +1,0 @@
-{
-  "chart": "prometheus-blackbox-exporter",
-  "version": "0.0.7",
-  "namespace": "prometheus"
-}

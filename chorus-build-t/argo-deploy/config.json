@@ -1,5 +1,0 @@
-{
-  "chart": "argo-deploy",
-  "version": "0.0.12",
-  "namespace": "argocd"
-}
