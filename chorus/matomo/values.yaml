@@ -2,11 +2,12 @@ matomo:
   matomoWebsiteName: chorus
   matomoWebsiteHost: https://makoto.chorus-tre.ch
   resourcesPreset: "large"
+  existingSecret: "matomo-secret"
   ingress:
     hostname: "makoto.chorus-tre.ch"
   externalDatabase:
     host: "chorus-matomo-db"
-
+    existingSecret: "matomo-db-secret"
   # temp fix for https://github.com/bitnami/charts/issues/29884
   pdb:
     create: false

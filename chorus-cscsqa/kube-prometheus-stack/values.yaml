@@ -80,9 +80,9 @@ kube-prometheus-stack:
         email_attribute_path: email
         login_attribute_path: username
         name_attribute_path: full_name
-        auth_url: https://auth.cscsqa.chorus-tre.ch/realms/chorus/protocol/openid-connect/auth?kc_idp_hint=google
-        token_url: https://auth.cscsqa.chorus-tre.ch/realms/chorus/protocol/openid-connect/token
-        api_url: https://auth.cscsqa.chorus-tre.ch/realms/chorus/protocol/openid-connect/userinfo
+        auth_url: https://auth.cscsqa.chorus-tre.ch/realms/infra/protocol/openid-connect/auth?kc_idp_hint=google
+        token_url: https://auth.cscsqa.chorus-tre.ch/realms/infra/protocol/openid-connect/token
+        api_url: https://auth.cscsqa.chorus-tre.ch/realms/infra/protocol/openid-connect/userinfo
         role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
         allow_assign_grafana_admin: true
       server:
@@ -120,7 +120,7 @@ kube-prometheus-stack:
 
 alertmanagerConfiguration:
   webex:
-    enabled: false 
+    enabled: false
     credentials:
       name: config-webex-secret
       key: access-token

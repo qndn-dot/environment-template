@@ -1,6 +1,4 @@
 keycloak:
-  nameOverride: keycloak
-  namespaceOverride: ""
 
   auth:
     existingSecret: keycloak-secret

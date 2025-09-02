@@ -14,6 +14,14 @@ env:
     existingSecret: i2b2-wildfly-secret
     key: pg_pass
   DS_TYPE: "postgres"
+  DS_IP: "chorus-cscsqa-i2b2-db"
+  DS_PORT: "5432"
+  DS_PM_USER: "i2b2pm"
+  DS_WB_USER: "i2b2workdata"
+  DS_HIVE_USER: "i2b2hive"
+  DS_PM_PASS:
+    existingSecret: i2b2-wildfly-secret
+    key: ds_pm_pass
   DS_PASSWORD:
     existingSecret: i2b2-wildfly-secret
     key: ds_password
@@ -26,6 +34,11 @@ env:
   DS_WD_DB: "i2b2"
   DS_WD_SCHEMA: "i2b2workdata"
   DS_CRC_IP: "chorus-i2b2-db"
+  DS_HIVE_PASS:
+    existingSecret: i2b2-wildfly-secret
+    key: ds_hive_pass
+  DS_CRC_IP: "chorus-cscsqa-i2b2-db"
+  DS_CRC_PORT: "5432"
   DS_CRC_USER: "i2b2"
   DS_CRC_PASS:
     existingSecret: i2b2-wildfly-secret
@@ -35,11 +48,11 @@ env:
   DS_CRC_SCHEMA: "i2b2demodata"
   DS_CRC_DB_TYPE: "pg"
   DS_ONT_IP: "chorus-i2b2-db"
+  DS_ONT_PORT: "5432"
   DS_ONT_USER: "i2b2"
   DS_ONT_PASS:
     existingSecret: i2b2-wildfly-secret
     key: ds_ont_pass
-  DS_ONT_PORT: "5432"
   DS_ONT_DB: "i2b2"
   DS_ONT_SCHEMA: "i2b2metadata"
   DS_ONT_DB_TYPE : "pg"
