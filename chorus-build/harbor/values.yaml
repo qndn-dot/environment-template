@@ -38,7 +38,6 @@ harbor:
       resourcesPreset: "small"
     external:
       addr: "chorus-build-harbor-cache-valkey-primary:6379"
-
   jobservice:
     # Must be a string of 16 chars.
     existingSecret: harbor-jobservice
@@ -51,7 +50,6 @@ harbor:
     credentials:
       # If using existingSecret, the key must be REGISTRY_PASSWD and REGISTRY_HTPASSWD
       existingSecret: harbor-registry-credentials
-
 certificate:
   enabled: true
 

@@ -3,20 +3,20 @@ harbor:
     tls:
       certSource: secret
       secret:
-        secretName: harbor.qa.chorus-tre.ch-tls
+        secretName: harbor.chorus-tre.ch-tls
     ingress:
       hosts:
-        core: harbor.qa.chorus-tre.ch
+        core: harbor.chorus-tre.ch
 
-  externalURL: https://harbor.qa.chorus-tre.ch
+  externalURL: https://harbor.chorus-tre.ch
 
   database:
     external:
-      host: "chorus-qa-harbor-db-postgresql"
+      host: "chorus-harbor-db-postgresql"
 
   redis:
     external:
-      addr: "chorus-qa-harbor-cache-valkey-primary:6379"
+      addr: "chorus-harbor-cache-valkey-primary:6379"
 
 certificate:
   enabled: true

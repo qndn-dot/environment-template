@@ -21,7 +21,7 @@ keycloak:
     enabled: true
 
     servicePort: https
-    hostname: auth.qa.chorus-tre.ch
+    hostname: auth.chorus-tre.ch
 
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -44,14 +44,14 @@ keycloak:
         #- path: '{{ include "keycloak.httpPath" . }}metrics'
         - path: '{{ include "keycloak.httpPath" . }}realms/{{ .Values.adminRealm }}/metrics'
           # Our custom realms
-        - path: '{{ include "keycloak.httpPath" . }}realms/qa/metrics'
         - path: '{{ include "keycloak.httpPath" . }}realms/chorus/metrics'
+        - path: '{{ include "keycloak.httpPath" . }}realms/infra/metrics'
 
   postgresql:
     enabled: false
 
   externalDatabase:
-    host: chorus-qa-keycloak-db-postgresql
+    host: chorus-keycloak-db-postgresql
     port: 5432
     user: keycloak
     database: keycloak
