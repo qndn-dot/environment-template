@@ -7,7 +7,7 @@ service:
 
 deployment:
   postgresEnabled: false
-  serviceAccountName: "backend-service-account"
+  serviceAccountName: "backend-service-account-chorus-master"
 
 image: harbor.chorus-tre.ch/chorus/backend:v0.1.12
 
@@ -43,7 +43,7 @@ main: |
         migration_table_name: tt_migrations
         host: chorus-backend-db-postgresql
         port: 5432
-        username: chorus-user
+        username: backend
         password: '{{ .postgres_password }}'
         database: chorus
         max_connections: 10
@@ -102,7 +102,7 @@ main: |
       proxy_hit_save_batch_interval: 30s
 
   clients:
-    k8s_client:
+    helm_client:
       ca: "{{ .service_account_secret_ca }}"
       token: "{{ .service_account_secret_token }}"
       api_server: "{{ .service_account_api_server_url }}"

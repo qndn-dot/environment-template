@@ -2,6 +2,7 @@ valkey:
   auth:
     enabled: false
     sentinel: false
+
   primary:
     resourcesPreset: "small"
 

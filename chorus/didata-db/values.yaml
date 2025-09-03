@@ -1,8 +1,6 @@
 mariadb:
-  fullnameOverride: chorus-didata-db
   auth:
-    database: didata
-    username: didata
+    existingSecret: "mariadb-secret"
   primary:
     configuration: |-
       [mysqld]

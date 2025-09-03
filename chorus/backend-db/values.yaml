@@ -2,14 +2,16 @@ postgresql:
   global:
     postgresql:
       auth:
-        username: chorus-user
-        existingSecret: "backend-postgresql"
+        database: chorus
+        username: backend
+        existingSecret: backend-db
         secretKeys:
-          userPasswordKey: "user-password"
+          adminPasswordKey: postgres-password
+          userPasswordKey: password
 
   tls:
     enabled: true
-    certificatesSecret: backend-postgresql-tls-secret
+    certificatesSecret: backend-db-tls-secret
 
   primary:
     persistance:
@@ -26,7 +28,7 @@ postgresql:
 certificate:
   enabled: true
 
-  secretName: backend-postgresql-tls-secret # same as above
+  secretName: backend-db-tls-secret # same as above
 
   issuerRef:
     name: private-ca-cluster-issuer

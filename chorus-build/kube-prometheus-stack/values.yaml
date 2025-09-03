@@ -116,8 +116,8 @@ kube-prometheus-stack:
 
 alertmanagerConfiguration:
   webex:
-    enabled: true
+    enabled: false
     credentials:
       name: config-webex-secret
       key: access-token
-    roomID: 33a87080-10fa-11ef-9932-7de5d097e655 # Alerts (chorus-build)
+    roomID: some-room-id # Alerts (chorus-build)
