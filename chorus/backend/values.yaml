@@ -102,10 +102,13 @@ main: |
       proxy_hit_save_batch_interval: 30s
 
   clients:
-    helm_client:
-      ca: "{{ .service_account_secret_ca }}"
-      token: "{{ .service_account_secret_token }}"
+    docker_client:
+      enabled: true
+    k8s_client:
+      enabled: true
+      sa_secret_path: "/var/run/secrets/kubernetes.io/serviceaccount"
       api_server: "{{ .service_account_api_server_url }}"
+      add_user_details: true
 
   log:
     loggers:
