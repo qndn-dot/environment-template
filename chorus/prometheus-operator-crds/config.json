@@ -1,6 +1,6 @@
 {
   "chart": "charts/prometheus-operator-crds",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "namespace": "default",
   "serverSideApply": true
 }
