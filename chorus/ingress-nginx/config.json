@@ -1,5 +1,5 @@
 {
   "chart": "charts/ingress-nginx",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "namespace": "ingress-nginx"
 }
