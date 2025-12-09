@@ -1,5 +1,5 @@
 {
   "chart": "i2b2-wildfly",
-  "version": "0.0.2",
-   "namespace": "i2b2"
+  "version": "0.0.5",
+  "namespace": "i2b2"
 }

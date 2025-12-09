@@ -5,16 +5,14 @@ oauth2-proxy:
     # - client-secret (from Keycloak)
     # - client-id
     existingSecret: prometheus-oauth2-proxy-oidc-secret
-
     # See: https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/keycloak_oidc/
     configFile: |-
       email_domains = [ "chuv.ch" ]
-      redirect_url = "https://prometheus.build.chorus-tre.ch/oauth2/callback"
-      oidc_issuer_url = "https://auth.build.chorus-tre.ch/realms/infra"
+      redirect_url = "https://prometheus.build.192.168.120.181.nip.io/oauth2/callback"
+      oidc_issuer_url = "https://auth.build.192.168.120.181.nip.io/realms/infra"
       scope = "openid email"
       provider = "keycloak-oidc"
       provider_display_name = "Keycloak"
-
   sessionStorage:
     type: redis
     redis:
@@ -22,16 +20,15 @@ oauth2-proxy:
       passwordKey: REDIS_PASSWORD
       standalone:
         connectionUrl: redis://chorus-build-oauth2-proxy-cache-valkey-primary.keycloak.svc.cluster.local:6379/1
-
   ingress:
     enabled: true
     className: nginx
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      cert-manager.io/cluster-issuer: "selfsigned-issuer"
     path: /oauth2
     hosts:
-      - prometheus.build.chorus-tre.ch
+      - prometheus.build.192.168.120.181.nip.io
     tls:
       - secretName: prometheus-general-tls
         hosts:
-          - prometheus.build.chorus-tre.ch
+          - prometheus.build.192.168.120.181.nip.io

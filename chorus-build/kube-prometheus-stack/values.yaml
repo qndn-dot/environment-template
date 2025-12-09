@@ -8,7 +8,6 @@ kube-prometheus-stack:
       kubeSchedulerAlerting: false
       kubeSchedulerRecording: false
       windows: false
-
   kubeEtcd:
     enabled: false
   kubeProxy:
@@ -17,22 +16,20 @@ kube-prometheus-stack:
     enabled: false
   kubeScheduler:
     enabled: false
-
   alertmanager:
     ingress:
       enabled: true
       ingressClassName: nginx
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - alertmanager.build.chorus-tre.ch
+        - alertmanager.build.192.168.120.181.nip.io
       tls:
         - secretName: alertmanager-general-tls
           hosts:
-            - alertmanager.build.chorus-tre.ch
-
+            - alertmanager.build.192.168.120.181.nip.io
     alertmanagerSpec:
       storage:
         volumeClaimTemplate:
@@ -42,31 +39,24 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 1Gi
-
   grafana:
     enabled: true
-
     ingress:
       enabled: true
       ingressClassName: nginx
-
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
-
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
       hosts:
-        - grafana.build.chorus-tre.ch
-
+        - grafana.build.192.168.120.181.nip.io
       tls:
         - secretName: grafana-general-tls
           hosts:
-            - grafana.build.chorus-tre.ch
-
+            - grafana.build.192.168.120.181.nip.io
     envValueFrom:
       GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET:
         secretKeyRef:
           name: grafana-secret
           key: oauth-client-secret
-
     grafana.ini:
       auth.generic_oauth:
         enabled: true
@@ -77,33 +67,30 @@ kube-prometheus-stack:
         email_attribute_path: email
         login_attribute_path: username
         name_attribute_path: full_name
-        auth_url: https://auth.build.chorus-tre.ch/realms/infra/protocol/openid-connect/auth?kc_idp_hint=google
-        token_url: https://auth.build.chorus-tre.ch/realms/infra/protocol/openid-connect/token
-        api_url: https://auth.build.chorus-tre.ch/realms/infra/protocol/openid-connect/userinfo
+        auth_url: https://auth.build.192.168.120.181.nip.io/realms/infra/protocol/openid-connect/auth?kc_idp_hint=google
+        token_url: https://auth.build.192.168.120.181.nip.io/realms/infra/protocol/openid-connect/token
+        api_url: https://auth.build.192.168.120.181.nip.io/realms/infra/protocol/openid-connect/userinfo
         role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
         allow_assign_grafana_admin: true
       server:
-        domain: grafana.build.chorus-tre.ch
-        root_url: https://grafana.build.chorus-tre.ch
-
+        domain: grafana.build.192.168.120.181.nip.io
+        root_url: https://grafana.build.192.168.120.181.nip.io
     serviceMonitor:
       enabled: true
-
   prometheus:
     ingress:
       enabled: true
       ingressClassName: nginx
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - prometheus.build.chorus-tre.ch
+        - prometheus.build.192.168.120.181.nip.io
       tls:
         - secretName: prometheus-general-tls
           hosts:
-            - prometheus.build.chorus-tre.ch
-
+            - prometheus.build.192.168.120.181.nip.io
     prometheusSpec:
       storageSpec:
         volumeClaimTemplate:
@@ -113,7 +100,6 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 50Gi
-
 alertmanagerConfiguration:
   webex:
     enabled: false

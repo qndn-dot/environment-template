@@ -1,28 +1,27 @@
 image:
-  repository: harbor.chorus-tre.ch/chorus/web-ui
-
+  repository: harbor.192.168.120.181.nip.io/chorus/web-ui
 env:
   - name: DATA_SOURCE_API_URL
-    value: https://backend.chorus-tre.ch
+    value: https://backend.192.168.120.181.nip.io
   - name: NEXT_PUBLIC_DATA_SOURCE_API_URL
-    value: https://backend.chorus-tre.ch/api/rest/v1
+    value: https://backend.192.168.120.181.nip.io/api/rest/v1
   - name: NEXT_PUBLIC_MATOMO_URL
-    value: https://makoto.chorus-tre.ch
+    value: https://makoto.192.168.120.181.nip.io
   - name: NEXT_PUBLIC_MATOMO_CONTAINER_ID
     value: XCmX17MR
   - name: NEXT_PUBLIC_APP_URL
-    value: https://chorus.chorus-tre.ch
+    value: https://chorus.192.168.120.181.nip.io
   - name: NEXT_PUBLIC_ALBERT_WORKSPACE_ID
     value: "1"
   - name: NEXT_PUBLIC_APP_DELAY_TIME
     value: "10"
 ingress:
   hosts:
-    - host: chorus.chorus-tre.ch
+    - host: chorus.192.168.120.181.nip.io
       paths:
         - path: /
           pathType: Prefix
   tls:
-  - hosts:
-    - chorus.chorus-tre.ch
-    secretName: web-ui-tls
+    - hosts:
+        - chorus.192.168.120.181.nip.io
+      secretName: web-ui-tls

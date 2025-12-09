@@ -8,32 +8,26 @@ postgresql:
         secretKeys:
           adminPasswordKey: postgres-password
           userPasswordKey: password
-
   tls:
     enabled: true
     certificatesSecret: keycloak-db-tls-secret
-
   primary:
-    resourcesPreset: "large"
+    resourcesPreset: "small"
     persistence:
       size: 1Gi
-
   metrics:
-    resourcesPreset: "micro"
-
+    resourcesPreset: "small"
   # Warning: Keycloak is still on 16
   # https://www.keycloak.org/server/db
   image:
     # https://hub.docker.com/r/bitnami/postgresql
     registry: docker.io
-    repository: bitnami/postgresql
+    repository: bitnamilegacy/postgresql
     tag: 16.4.0
-
+  architecture: standalone
 certificate:
   enabled: true
-
   secretName: keycloak-db-tls-secret # same as above
-
   issuerRef:
-    name: private-ca-cluster-issuer
+    name: selfsigned-issuer
     kind: ClusterIssuer

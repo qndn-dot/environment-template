@@ -1,12 +1,11 @@
 environments:
   - name: chorus-build
     description: CHORUS build
-    envRepoURL: https://github.com/CHORUS-TRE/environment-template.git
-    registryURL: harbor.build.chorus-tre.ch
+    envRepoURL: https://github.com/qndn-dot/environment-template.git
+    registryURL: harbor.build.192.168.120.181.nip.io
     cluster: in-cluster
-
   - name: chorus
     description: CHORUS
-    envRepoURL: https://github.com/CHORUS-TRE/environment-template.git
-    registryURL: harbor.build.chorus-tre.ch
+    envRepoURL: https://github.com/qndn-dot/environment-template.git
+    registryURL: harbor.build.192.168.120.181.nip.io
     cluster: chorus

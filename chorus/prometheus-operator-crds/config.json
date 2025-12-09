@@ -1,5 +1,5 @@
 {
-  "chart": "charts/prometheus-operator-crds",
+  "chart": "prometheus-operator-crds",
   "version": "0.0.9",
   "namespace": "default",
   "serverSideApply": true

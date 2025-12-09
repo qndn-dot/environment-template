@@ -1,6 +1,6 @@
 {
   "chart": "kube-prometheus-stack",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "namespace": "prometheus",
   "stepName": "database"
 }

@@ -5,11 +5,10 @@ argo-workflows:
       annotations:
         "workflows.argoproj.io/rbac-rule": "'ArgoWorkflowsAdmins' in groups"
         "workflows.argoproj.io/rbac-rule-precedence": “1”
-    #rbac:
-    #  serviceAccounts:
-    #    - name: argo-ci
-    #      namespace: argo
-
+        #rbac:
+        #  serviceAccounts:
+        #    - name: argo-ci
+        #      namespace: argo
   controller:
     workflowNamespaces:
       - argo
@@ -20,40 +19,36 @@ argo-workflows:
           secondsAfterCompletion: 259200 # Time to live after workflow is completed, replaces ttlSecondsAfterFinished
           secondsAfterSuccess: 86400 # Time to live after workflow is successful
           secondsAfterFailure: 259200 # Time to live after workflow fails
-
   server:
     authModes:
       - client
       - sso
-
     logging:
       level: debug
-
     sso:
       enabled: true
-      issuer: https://auth.build.chorus-tre.ch/realms/infra
+      issuer: https://auth.build.192.168.120.181.nip.io/realms/infra
       clientId:
         name: argo-workflows-oidc
         key: client-id
       clientSecret:
         name: argo-workflows-oidc
         key: client-secret
-      redirectUrl: https://argo-workflows.build.chorus-tre.ch/oauth2/callback
+      redirectUrl: https://argo-workflows.build.192.168.120.181.nip.io/oauth2/callback
       rbac:
         enabled: true
       scopes: [openid, email, profile, groups]
-
     ingress:
       enabled: true
       ingressClassName: "nginx"
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
       hosts:
-        - argo-workflows.build.chorus-tre.ch
+        - argo-workflows.build.192.168.120.181.nip.io
       paths:
         - /
       pathType: Prefix
       tls:
         - hosts:
-            - argo-workflows.build.chorus-tre.ch
+            - argo-workflows.build.192.168.120.181.nip.io
           secretName: argo-workflows-tls

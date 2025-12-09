@@ -9,5 +9,5 @@ mariadb:
       enabled: true
       engine: cert-manager
       certManager:
-        existingIssuer: private-ca-cluster-issuer
+        existingIssuer: selfsigned-issuer
         existingIssuerKind: ClusterIssuer

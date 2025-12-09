@@ -8,7 +8,6 @@ kube-prometheus-stack:
       kubeSchedulerAlerting: false
       kubeSchedulerRecording: false
       windows: false
-
   kubeEtcd:
     enabled: false
   kubeProxy:
@@ -17,22 +16,20 @@ kube-prometheus-stack:
     enabled: false
   kubeScheduler:
     enabled: false
-
   alertmanager:
     ingress:
       enabled: true
       ingressClassName: nginx
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - alertmanager.chorus-tre.ch
+        - alertmanager.192.168.120.181.nip.io
       tls:
         - secretName: alertmanager-general-tls
           hosts:
-            - alertmanager.chorus-tre.ch
-
+            - alertmanager.192.168.120.181.nip.io
     alertmanagerSpec:
       storage:
         volumeClaimTemplate:
@@ -42,72 +39,61 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 1Gi
-
   grafana:
     enabled: true
-
     admin:
       existingSecret: "grafana-secret"
-
     ingress:
       enabled: true
       ingressClassName: nginx
-
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
-
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
       hosts:
-        - grafana.chorus-tre.ch
-
+        - grafana.192.168.120.181.nip.io
       tls:
         - secretName: grafana-general-tls
           hosts:
-            - grafana.chorus-tre.ch
-
+            - grafana.192.168.120.181.nip.io
     envValueFrom:
       GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET:
         secretKeyRef:
           name: grafana-secret
           key: oauth_client_secret
-
     grafana.ini:
       auth.generic_oauth:
         enabled: true
-        name: Keycloak Login  # oidc button name
+        name: Keycloak Login # oidc button name
         allow_sign_up: true
         client_id: grafana
         scopes: openid email profile offline_access
         email_attribute_path: email
         login_attribute_path: username
         name_attribute_path: full_name
-        auth_url: https://auth.chorus-tre.ch/realms/infra/protocol/openid-connect/auth?kc_idp_hint=google
-        token_url: https://auth.chorus-tre.ch/realms/infra/protocol/openid-connect/token
-        api_url: https://auth.chorus-tre.ch/realms/infra/protocol/openid-connect/userinfo
+        auth_url: https://auth.192.168.120.181.nip.io/realms/infra/protocol/openid-connect/auth?kc_idp_hint=google
+        token_url: https://auth.192.168.120.181.nip.io/realms/infra/protocol/openid-connect/token
+        api_url: https://auth.192.168.120.181.nip.io/realms/infra/protocol/openid-connect/userinfo
         role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
         allow_assign_grafana_admin: true
       server:
         # https://grafana.com/docs/grafana/latest/administration/configuration/#server
-        domain: grafana.chorus-tre.ch
-        root_url: https://grafana.chorus-tre.ch
-
+        domain: grafana.192.168.120.181.nip.io
+        root_url: https://grafana.192.168.120.181.nip.io
     serviceMonitor:
       enabled: true
-
   prometheus:
     ingress:
       enabled: true
       ingressClassName: nginx
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
         nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       hosts:
-        - prometheus.chorus-tre.ch
+        - prometheus.192.168.120.181.nip.io
       tls:
         - secretName: prometheus-general-tls
           hosts:
-            - prometheus.chorus-tre.ch
-
+            - prometheus.192.168.120.181.nip.io
     prometheusSpec:
       storageSpec:
         volumeClaimTemplate:
@@ -117,7 +103,6 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 50Gi
-
 alertmanagerConfiguration:
   webex:
     enabled: false

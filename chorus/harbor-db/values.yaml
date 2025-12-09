@@ -33,7 +33,7 @@ postgresql:
   image:
     # https://hub.docker.com/r/bitnami/postgresql
     registry: docker.io
-    repository: bitnami/postgresql
+    repository: bitnamilegacy/postgresql
     tag: 15.10.0
 
 certificate:
@@ -42,5 +42,5 @@ certificate:
   secretName: harbor-db-tls-secret # same as above
 
   issuerRef:
-    name: private-ca-cluster-issuer
+    name: selfsigned-issuer
     kind: ClusterIssuer

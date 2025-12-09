@@ -1,14 +1,13 @@
 controllerManager:
   manager:
     image:
-      repository: harbor.chorus-tre.ch/chorus/workbench-operator
+      repository: harbor.192.168.120.181.nip.io/chorus/workbench-operator
     args:
       - --leader-elect
-      - --registry=harbor.chorus-tre.ch
-      - --xpra-server-image=harbor.chorus-tre.ch/apps/xpra-server
+      - --registry=harbor.192.168.120.181.nip.io
+      - --xpra-server-image=harbor.192.168.120.181.nip.io/apps/xpra-server
       - --apps-repository=apps
       - --socat-image=alpine/socat:1.8.0.0
       - --metrics-bind-address=:8080
-
 imagePullSecrets:
   - name: regcred

@@ -1,14 +1,13 @@
 ingress:
   hosts:
-    - host: wildfly.chorus-tre.ch
+    - host: wildfly.192.168.120.181.nip.io
       paths:
         - path: /
           pathType: Prefix
   tls:
-    - secretName: wildfly.chorus-tre.ch-tls
+    - secretName: wildfly.192.168.120.181.nip.io-tls
       hosts:
-        - wildfly.chorus-tre.ch
-
+        - wildfly.192.168.120.181.nip.io
 env:
   PG_PASS:
     existingSecret: i2b2-wildfly-secret
@@ -55,7 +54,7 @@ env:
     key: ds_ont_pass
   DS_ONT_DB: "i2b2"
   DS_ONT_SCHEMA: "i2b2metadata"
-  DS_ONT_DB_TYPE : "pg"
+  DS_ONT_DB_TYPE: "pg"
   DS_PM_DB: "i2b2"
   DS_PM_SCHEMA: "i2b2pm"
   DS_PM_PORT: "5432"
@@ -73,6 +72,6 @@ env:
   DS_HIVE_PORT: "5432"
   DS_HIVE_DB: "i2b2"
   DS_HIVE_SCHEMA: "i2b2hive"
-  DS_HIVE_DB_TYPE : "pg"
+  DS_HIVE_DB_TYPE: "pg"
   DS_CSV_DELIMITER: ","
   DS_BCP_DELIMITER: "^"

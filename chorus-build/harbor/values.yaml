@@ -4,7 +4,6 @@ harbor:
   existingSecretSecretKey: harbor-key
   existingSecretAdminPassword: harbor-admin-password
   existingSecretAdminPasswordKey: HARBOR_ADMIN_PASSWORD
-
   core:
     # If using existingSecret, the key must be secret
     # Must be a string of 16 chars.
@@ -17,22 +16,18 @@ harbor:
           secretKeyRef:
             key: CONFIG_OVERWRITE_JSON
             name: harbor-oidc
-
   expose:
     tls:
       certSource: secret
       secret:
-        secretName: harbor.build.chorus-tre.ch-tls
+        secretName: harbor-tls-secret
     ingress:
       hosts:
-        core: harbor.build.chorus-tre.ch
-
-  externalURL: https://harbor.build.chorus-tre.ch
-
+        core: harbor.build.192.168.120.181.nip.io
+  externalURL: https://harbor.build.192.168.120.181.nip.io
   database:
     external:
       host: "chorus-build-harbor-db-postgresql"
-
   redis:
     master:
       resourcesPreset: "small"
@@ -42,7 +37,6 @@ harbor:
     # Must be a string of 16 chars.
     existingSecret: harbor-jobservice
     existingSecretKey: JOBSERVICE_SECRET
-
   registry:
     # Must be a string of 16 chars.
     existingSecret: harbor-registry
@@ -52,7 +46,11 @@ harbor:
       existingSecret: harbor-registry-credentials
 certificate:
   enabled: true
-
   issuerRef:
-    name: private-ca-cluster-issuer
+    name: selfsigned-issuer
     kind: ClusterIssuer
+  secretName: harbor-tls-secret
+redis:
+  type: external
+database:
+  type: external

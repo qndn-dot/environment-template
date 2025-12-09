@@ -1,6 +1,6 @@
 {
   "chart": "ingress-nginx",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "namespace": "ingress-nginx",
   "stepName": "infrastructure"
 }

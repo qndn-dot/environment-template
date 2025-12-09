@@ -8,28 +8,21 @@ postgresql:
         secretKeys:
           adminPasswordKey: postgres-password
           userPasswordKey: password
-
   tls:
     enabled: true
     certificatesSecret: backend-db-tls-secret
-
   primary:
     persistance:
       size: 8Gi
-
     resourcesPreset: small
-
   image:
     # https://hub.docker.com/r/bitnami/postgresql
     registry: docker.io
-    repository: bitnami/postgresql
+    repository: bitnamilegacy/postgresql
     tag: 16.4.0
-
 certificate:
   enabled: true
-
   secretName: backend-db-tls-secret # same as above
-
   issuerRef:
-    name: private-ca-cluster-issuer
+    name: selfsigned-issuer
     kind: ClusterIssuer

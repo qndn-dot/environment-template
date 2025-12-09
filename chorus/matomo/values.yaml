@@ -1,10 +1,10 @@
 matomo:
   matomoWebsiteName: chorus
-  matomoWebsiteHost: https://makoto.chorus-tre.ch
-  resourcesPreset: "large"
+  matomoWebsiteHost: https://makoto.192.168.120.181.nip.io
+  resourcesPreset: "small"
   existingSecret: "matomo-secret"
   ingress:
-    hostname: "makoto.chorus-tre.ch"
+    hostname: "makoto.192.168.120.181.nip.io"
   externalDatabase:
     host: "chorus-matomo-db"
     existingSecret: "matomo-db-secret"

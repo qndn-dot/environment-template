@@ -1,6 +1,6 @@
 argo-cd:
   global:
-    domain: argo-cd.build.chorus-tre.ch
+    domain: argo-cd.build.192.168.120.181.nip.io
   configs:
     cm:
       admin.enabled: true
@@ -23,10 +23,10 @@ argo-cd:
       annotations:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
       extraTls:
         - hosts:
-          - argo-cd.build.chorus-tre.ch
+          - argo-cd.build.192.168.120.181.nip.io
           secretName: argocd-ingress-http
     ingressGrpc:
       enabled: true
@@ -35,10 +35,10 @@ argo-cd:
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "selfsigned-issuer"
       extraTls:
         - hosts:
-          - grpc.argo-cd.build.chorus-tre.ch
+          - grpc.argo-cd.build.192.168.120.181.nip.io
           secretName: argocd-ingress-grpc
 
   # External Redis to better manage the upgrades.

@@ -1,11 +1,9 @@
 sensor:
-  registry: harbor.build.chorus-tre.ch
+  registry: harbor.build.192.168.120.181.nip.io
   dockerConfig:
     secretName: harbor-dockerconfigjson-secret
-
 serviceAccount:
   name: chorus-ci-sa
-
 # Creates the webhook and matching events on the GibHub EventSource.
 webhookEvents:
   - name: ci
@@ -13,39 +11,34 @@ webhookEvents:
       - owner: chorus-tre
         names:
           - images
-
     # That secret must contain the following keys:
     # - token (a GitHub pat), and secret (the webhook secret).
     secretName: chorus-ci-github-images
-
   - name: chorus-web-ui
     repositories:
       - owner: chorus-tre
         names:
           - chorus-web-ui
     secretName: chorus-ci-github-chorus-web-ui
-
   - name: chorus-backend
     repositories:
       - owner: chorus-tre
         names:
           - chorus-backend
     secretName: chorus-ci-github-chorus-backend
-
   - name: workbench-operator
     repositories:
       - owner: chorus-tre
         names:
           - workbench-operator
     secretName: chorus-ci-github-workbench-operator
-
 ingress:
   hosts:
-    - host: webhook.build.chorus-tre.ch
+    - host: webhook.build.192.168.120.181.nip.io
       paths:
         - path: "/"
           pathType: Prefix
   tls:
     - hosts:
-        - webhook.build.chorus-tre.ch
+        - webhook.build.192.168.120.181.nip.io
       secretName: chorus-ci-tls

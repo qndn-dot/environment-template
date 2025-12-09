@@ -1,5 +1,5 @@
 {
-  "chart": "charts/didata",
-  "version": "0.0.7",
+  "chart": "didata",
+  "version": "0.0.17",
   "namespace": "didata"
 }

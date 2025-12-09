@@ -22,28 +22,23 @@ harbor:
     tls:
       certSource: secret
       secret:
-        secretName: harbor.chorus-tre.ch-tls
+        secretName: harbor-tls-secret
     ingress:
       hosts:
-        core: harbor.chorus-tre.ch
-
-  externalURL: https://harbor.chorus-tre.ch
-
+        core: harbor.192.168.120.181.nip.io
+  externalURL: https://harbor.192.168.120.181.nip.io
   database:
     external:
       host: "chorus-harbor-db-postgresql"
-
   redis:
     master:
       resourcesPreset: "small"
     external:
       addr: "chorus-harbor-cache-valkey-primary:6379"
-
   jobservice:
     # Must be a string of 16 chars.
     existingSecret: harbor-jobservice
     existingSecretKey: JOBSERVICE_SECRET
-
   registry:
     # Must be a string of 16 chars.
     existingSecret: harbor-registry
@@ -51,10 +46,13 @@ harbor:
     credentials:
       # If using existingSecret, the key must be REGISTRY_PASSWD and REGISTRY_HTPASSWD
       existingSecret: harbor-registry-credentials
-
 certificate:
   enabled: true
-
   issuerRef:
-    name: private-ca-cluster-issuer
+    name: selfsigned-issuer
     kind: ClusterIssuer
+  secretName: harbor-tls-secret
+redis:
+  type: external
+database:
+  type: external

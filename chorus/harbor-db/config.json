@@ -1,6 +1,6 @@
 {
   "chart": "postgresql",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "namespace": "harbor",
   "stepName": "database"
 }

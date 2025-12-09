@@ -3,6 +3,5 @@ trust-manager:
     enabled: true
     authorizedSecrets:
       - private-ca-secret
-
   app:
     logFormat: json

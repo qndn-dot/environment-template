@@ -2,16 +2,16 @@ ingress:
   enabled: true
   className: "nginx"
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "selfsigned-issuer"
   hosts:
-    - host: i2b2.chorus-tre.ch 
+    - host: i2b2.192.168.120.181.nip.io
       paths:
         - path: /
           pathType: Prefix
   tls:
     - secretName: i2b2-tls
       hosts:
-        - i2b2.chorus-tre.ch
+        - i2b2.192.168.120.181.nip.io
 cm:
   urlCellPM: "http://chorus-i2b2-wildfly:8080/i2b2/services/PMService/"
   pmURL: "http://chorus-i2b2-wildfly:8080/i2b2/rest/PMService/getServices"
