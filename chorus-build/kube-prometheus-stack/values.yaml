@@ -107,3 +107,7 @@ alertmanagerConfiguration:
       name: config-webex-secret
       key: access-token
     roomID: some-room-id # Alerts (chorus-build)
+prometheus-node-exporter:
+  enabled: false
+  hostRootFsMount:
+    mountPropagation: HostToContainer

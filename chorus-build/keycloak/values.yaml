@@ -42,8 +42,6 @@ keycloak:
     existingSecretPasswordKey: password
   logging:
     output: json
-  keycloakConfigCli:
-    enabled: false
 certificate:
   enabled: true
   secretName: keycloak-tls-secret
