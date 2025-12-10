@@ -38,6 +38,8 @@ argo-workflows:
       rbac:
         enabled: true
       scopes: [openid, email, profile, groups]
+      insecure: true
+      insecureSkipVerify: true
     ingress:
       enabled: true
       ingressClassName: "nginx"

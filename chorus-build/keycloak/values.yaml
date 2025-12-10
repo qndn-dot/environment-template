@@ -1,4 +1,10 @@
 keycloak:
+  livenessProbe:
+    initialDelaySeconds: 400 
+    timeoutSeconds: 5
+  readinessProbe:
+    initialDelaySeconds: 400 
+    timeoutSeconds: 5
   auth:
     existingSecret: keycloak-secret
     passwordSecretKey: adminPassword
