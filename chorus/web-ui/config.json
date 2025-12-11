@@ -1,6 +1,6 @@
 {
   "chart": "web-ui",
-  "version": "latest",
+  "version": "1.26.2",
   "namespace": "frontend",
   "stepName": "application"
 }

@@ -1,6 +1,6 @@
 {
   "chart": "backend",
-  "version": "latest",
+  "version": "0.4.0",
   "namespace": "backend",
   "stepName": "application"
 }
